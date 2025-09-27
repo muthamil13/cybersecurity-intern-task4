@@ -1,0 +1,134 @@
+──(kali㉿kali)-[~]
+└─$ sudo su
+[sudo] password for kali: 
+┌──(root㉿kali)-[/home/kali]
+└─# ufw --version
+Command 'ufw' not found, but can be installed with:
+apt install ufw
+Do you want to install it? (N/y)y
+apt install ufw
+The following packages were automatically installed and are no longer required:
+  libjs-underscore  libplacebo349  libportmidi0
+Use 'sudo apt autoremove' to remove them.
+
+Installing:
+  ufw
+
+Suggested packages:
+  rsyslog
+
+Summary:
+  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 7
+  Download size: 169 kB
+  Space needed: 880 kB / 63.5 GB available
+
+Get:1 http://kali.download/kali kali-rolling/main amd64 ufw all 0.36.2-9 [169 kB]
+Fetched 169 kB in 2s (94.6 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package ufw.
+(Reading database ... 416529 files and directories currently installed.)
+Preparing to unpack .../archives/ufw_0.36.2-9_all.deb ...
+Unpacking ufw (0.36.2-9) ...
+Setting up ufw (0.36.2-9) ...
+Creating config file /etc/ufw/before.rules with new version
+Creating config file /etc/ufw/before6.rules with new version
+Creating config file /etc/ufw/after.rules with new version
+Creating config file /etc/ufw/after6.rules with new version
+update-rc.d: We have no instructions for the ufw init script.
+update-rc.d: It looks like a non-network service, we enable it.
+Created symlink '/etc/systemd/system/multi-user.target.wants/ufw.service' → '/usr/lib/systemd/system/ufw.service'.
+Processing triggers for kali-menu (2025.4.0) ...
+Processing triggers for man-db (2.13.1-1) ...
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo apt update   
+Get:1 http://kali.download/kali kali-rolling InRelease [34.0 kB]
+Get:2 http://kali.download/kali kali-rolling/main amd64 Packages [21.0 MB]
+Get:3 http://kali.download/kali kali-rolling/main amd64 Contents (deb) [50.6 MB]
+Get:4 http://kali.download/kali kali-rolling/contrib amd64 Packages [119 kB]
+Get:5 http://kali.download/kali kali-rolling/contrib amd64 Contents (deb) [326 kB]
+Get:6 http://kali.download/kali kali-rolling/non-free amd64 Packages [201 kB]
+Get:7 http://kali.download/kali kali-rolling/non-free amd64 Contents (deb) [911 kB]
+Get:8 http://kali.download/kali kali-rolling/non-free-firmware amd64 Packages [11.3 kB]
+Get:9 http://kali.download/kali kali-rolling/non-free-firmware amd64 Contents (deb) [28.4 kB]
+Fetched 73.3 MB in 28s (2,600 kB/s)                                         
+387 packages can be upgraded. Run 'apt list --upgradable' to see them.
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# ufw --version  
+ufw 0.36.2
+Copyright 2008-2023 Canonical Ltd.
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo apt install ufw
+ufw is already the newest version (0.36.2-9).
+The following packages were automatically installed and are no longer required:
+  libjs-underscore  libplacebo349  libportmidi0
+Use 'sudo apt autoremove' to remove them.
+
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 387
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo ufw status verbose       
+Status: inactive
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo ufw enable        
+Firewall is active and enabled on system startup
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo ufw deny in 23
+Rule added
+Rule added (v6)
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo apt install telnet
+The following packages were automatically installed and are no longer required:
+  libjs-underscore  libplacebo349  libportmidi0
+Use 'sudo apt autoremove' to remove them.
+
+Installing:
+  telnet
+                                                                             
+Summary:
+  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 387
+  Download size: 43.4 kB
+  Space needed: 55.3 kB / 63.5 GB available
+
+Get:1 http://http.kali.org/kali kali-rolling/main amd64 telnet all 0.17+2.6-4 [43.4 kB]
+Fetched 43.4 kB in 2s (24.5 kB/s)
+Selecting previously unselected package telnet.
+(Reading database ... 416642 files and directories currently installed.)
+Preparing to unpack .../telnet_0.17+2.6-4_all.deb ...
+Unpacking telnet (0.17+2.6-4) ...
+Setting up telnet (0.17+2.6-4) ...
+                                                                            
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# telnet ******** 23   ->  telnet <My ip address> 23
+Trying 0.0.0.24...
+telnet: Unable to connect to remote host: Connection refused
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo ufw allow 22      
+Rule added
+Rule added (v6)
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo ufw delete deny in 23
+Rule deleted
+Rule deleted (v6)
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# sudo ufw status           
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22                         ALLOW       Anywhere                  
+22 (v6)                    ALLOW       Anywhere (v6)             
+
+                                                                             
+┌──(root㉿kali)-[/home/kali]
+└─# 
